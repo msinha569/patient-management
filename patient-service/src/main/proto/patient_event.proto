@@ -1,8 +1,13 @@
-syntax="proto3";
-package patient.events;
-option java_multiple_files=true;
+syntax = "proto3";
 
-message PatientEvent{
+package patient.events;
+
+// ✅ REQUIRED for Java import to work
+option java_multiple_files = true;
+option java_package = "patient.events";
+option java_outer_classname = "PatientEventsProto";
+
+message PatientEvent {
   string patientId = 1;
   string name = 2;
   string email = 3;
