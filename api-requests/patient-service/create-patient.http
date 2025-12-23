@@ -1,0 +1,10 @@
+POST http://localhost:4000/patients
+Content-Type: application/json
+
+{
+  "name": "Manish kr sinha",
+  "email": "kafhaaj@gmail.com",
+  "address": "giridih, jharkhand",
+  "registeredDate": "2025-10-18",
+  "dateOfBirth": "2003-06-21"
+}

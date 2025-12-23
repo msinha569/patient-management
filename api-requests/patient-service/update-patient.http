@@ -1,0 +1,10 @@
+PUT http://localhost:4000/patients/3a5d99a7-212f-4ced-a77c-aa7d07b1311e
+Content-Type: application/json
+
+
+{
+  "name": "Manish kumar sinha",
+  "email": "msinha569@gmail.com",
+  "address": "giridih, jharkhand",
+  "dateOfBirth": "2003-06-21"
+}
