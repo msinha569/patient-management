@@ -7,21 +7,29 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import patient.events.PatientEvent;
 
+
 @Service
 public class KafkaConsumer {
+
     private static final Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
 
-    @KafkaListener(topics = "patient", groupId = "analytics-service-debug")
+    @KafkaListener(topics = "patient")
     public void consumeEvent(byte[] event) {
-        System.out.println("RECEIVED EVENT here");
+        log.info("RECEIVED EVENT");
 
         try {
             PatientEvent patientEvent = PatientEvent.parseFrom(event);
 
-            log.info("Received Patient Event: [Patient ID= {}, Patient Name= {}, Patient Email= {}]",
-                    patientEvent.getPatientId(), patientEvent.getName(), patientEvent.getEmail());
+            log.info(
+                    "CONSUMED PatientEvent: id={}, name={}, email={}, eventType={}",
+                    patientEvent.getPatientId(),
+                    patientEvent.getName(),
+                    patientEvent.getEmail(),
+                    patientEvent.getEventType()
+            );
+
         } catch (InvalidProtocolBufferException e) {
-            log.error("Error deserializing event {}", e.getMessage());
+            log.error("Failed to deserialize Protobuf event", e);
         }
     }
 }
