@@ -8,7 +8,7 @@
           <list>
             <DockerEnvVarImpl>
               <option name="name" value="KAFKA_ADVERTISED_LISTENERS" />
-              <option name="value" value="PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094" />
+              <option name="value" value="INTERNAL://kafka:9092,EXTERNAL://localhost:9094" />
             </DockerEnvVarImpl>
             <DockerEnvVarImpl>
               <option name="name" value="KAFKA_CONTROLLER_LISTENER_NAMES" />
@@ -19,12 +19,16 @@
               <option name="value" value="1@kafka:9093" />
             </DockerEnvVarImpl>
             <DockerEnvVarImpl>
+              <option name="name" value="KAFKA_INTER_BROKER_LISTENER_NAME" />
+              <option name="value" value="INTERNAL" />
+            </DockerEnvVarImpl>
+            <DockerEnvVarImpl>
               <option name="name" value="KAFKA_LISTENER_SECURITY_PROTOCOL_MAP" />
-              <option name="value" value="PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT" />
+              <option name="value" value="INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT" />
             </DockerEnvVarImpl>
             <DockerEnvVarImpl>
               <option name="name" value="KAFKA_LISTENERS" />
-              <option name="value" value="PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093,EXTERNAL://0.0.0.0:9094" />
+              <option name="value" value="INTERNAL://0.0.0.0:9092,EXTERNAL://0.0.0.0:9094,CONTROLLER://0.0.0.0:9093" />
             </DockerEnvVarImpl>
             <DockerEnvVarImpl>
               <option name="name" value="KAFKA_NODE_ID" />
@@ -33,6 +37,18 @@
             <DockerEnvVarImpl>
               <option name="name" value="KAFKA_PROCESS_ROLES" />
               <option name="value" value="broker,controller" />
+            </DockerEnvVarImpl>
+            <DockerEnvVarImpl>
+              <option name="name" value="KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR" />
+              <option name="value" value="1" />
+            </DockerEnvVarImpl>
+            <DockerEnvVarImpl>
+              <option name="name" value="KAFKA_TRANSACTION_STATE_LOG_MIN_ISR" />
+              <option name="value" value="1" />
+            </DockerEnvVarImpl>
+            <DockerEnvVarImpl>
+              <option name="name" value="KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR" />
+              <option name="value" value="1" />
             </DockerEnvVarImpl>
           </list>
         </option>

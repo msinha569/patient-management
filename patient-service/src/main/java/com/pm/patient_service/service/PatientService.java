@@ -36,7 +36,7 @@ public class PatientService {
 
     public PatientResponseDTO createPatient(PatientRequestDTO patientRequestDTO) {
         if (patientRepository.existsByEmail(patientRequestDTO.getEmail())) {
-            throw new EmailAlreadyExistsException("A patient with this email" + patientRequestDTO.getEmail() + "already exists");
+            throw new EmailAlreadyExistsException("A patient with this email: " + patientRequestDTO.getEmail() + "already exists");
 
         }
 
